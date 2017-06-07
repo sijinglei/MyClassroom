@@ -4,5 +4,5 @@ My study record.
 # 
 1、2017-06-05 了解React基础知识及使用方法。
 <br>
-2、2017-06-05 React实践图片画廊应用（[react/lesson02](https://github.com/sijinglei/MyClassroom/tree/master/react/lesson02)）。
+2、2017-06-05 React实践图片画廊应用（[图片画廊](https://sijinglei.github.io/i-love-you/)）。
 
