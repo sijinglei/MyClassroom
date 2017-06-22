@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #212121;
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.donut {
+    position: relative;
+    width: 240px;
+    height: 240px;
+}
+
+.donut__copy {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 68px;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.donut__title,
+.donut__secondary {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.donut__title,
+.donut__spic {
+    color: lighten(#7a5bcf, 5%);
+    font-weight: 200;
+}
+
+.donut__title {
+    font-size: 79px;
+    position: relative;
+    animation: donutTitleFadeLeft 800ms 200ms cubic-bezier(.99, .01, .22, .94) forwards;
+    opacity: 0;
+    transform: translateX(0);
+}
+
+.donut__spic {
+    position: absolute;
+    top: 20px;
+    font-size: 30px;
+    line-height: 1em;
+    content: "%";
+    animation: donutTitleFadeRight 800ms 200ms cubic-bezier(.99, .01, .22, .94) forwards;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+@keyframes donutTitleFadeLeft {
+    from {
+        opacity: 0;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-10px);
+    }
+}
+
+@keyframes donutTitleFadeRight {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+// NOTE FOR SELF - Get better at maths
+// =========
+// The stroke-dasharray is the circumfrence of the circle.
+// which can be worked out using 2πr.
+//
+// To animate this, you need to work out the percentage of this value. So for example,
+// to show 84%, we would need 84% of 628.32 which is 527.7888. This would show 26%, so
+// we then take this away from the original value, which would leave 100.5312
+// The radius of the circle
+$radius: 90;
+// This is the percentage that we want to show
+$percent: 82;
+$circumference: (pi() * (2 * $radius));
+$stroke_percentage: $circumference - (($percent / 100) * $circumference);
+.donut__svg {
+    transform: rotate(-90deg);
+}
+
+.donut__svg__circle--one {
+    stroke-dasharray: $circumference;
+    stroke-dashoffset: $circumference;
+}
+
+.donut__svg__circle--one {
+    animation: donut-show-one 1200ms cubic-bezier(.99, .01, .62, .94) .5s forwards;
+    transition: stroke-dasharray 400ms ease-in-out;
+}
+
+@keyframes donut-show-one {
+    to {
+        stroke-dashoffset: $stroke_percentage;
+    }
+}
+
+//
+//
+.info {
+    font-size: 14px;
+    color: #999;
+    position: absolute;
+    flex: 1;
+    bottom: 40px;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    a {
+        color: #999;
+    }
+}
