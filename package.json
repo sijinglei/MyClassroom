@@ -1,0 +1,22 @@
+{
+    "name": "MyClassroom",
+    "version": "1.0.0",
+    "description": "My study record.\r 记录每天学习的新知识！\r # \r 1、2017-06-05 了解React基础知识及使用方法。\r <br>\r 2、2017-06-05 React实践图片画廊应用（[图片画廊](https://sijinglei.github.io/i-love-you/)）。",
+    "main": "build.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "node build/build.js",
+        "dev": "node build/dev-server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sijinglei/MyClassroom.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/sijinglei/MyClassroom/issues"
+    },
+    "homepage": "https://github.com/sijinglei/MyClassroom#readme"
+}

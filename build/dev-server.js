@@ -15,11 +15,11 @@ rm(path.resolve(__dirname, '../dist/js'), (err) => {
         entry: './src/main.js',
         output: {
             path: path.resolve(__dirname, '../dist/js'),
-            filename: 'ziksang.js',
+            filename: 'xxx.js',
         },
         plugins: [
             new webpack.DefinePlugin({
-                LOCAL_ROOT: JSON.stringify("http://ziksang.com")
+                LOCAL_ROOT: JSON.stringify("http://xxx.com")
             })
         ]
     }, (err, stats) => {
