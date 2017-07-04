@@ -15,7 +15,7 @@ rm(path.resolve(__dirname, '../dist/js'), (err) => {
         entry: './src/main.js',
         output: {
             path: path.resolve(__dirname, '../dist/js'),
-            filename: 'xxx.js',
+            filename: 'build.js',
         },
         plugins: [
             new webpack.DefinePlugin({
