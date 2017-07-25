@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>Tronker金融半年度运营报告</title>
+    <link rel="stylesheet" href="/zeph/tronkerWeb/css/reset.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .swiper-wrapper {
+            -webkit-perspective: 1200px;
+            -moz-perspective: 1200px;
+            -ms-perspective: 1200px;
+            perspective: 1200px;
+        }
+        /*.swiper-slide {
+            position: relative;
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            background-size: 100% auto;
+            overflow: hidden;
+            text-align: center;
+            line-height: 300px;
+        }*/
+        
+        img {
+            display: block;
+        }
+        
+        .swiper-slide img {
+            max-width: 100%;
+        }
+        
+        #array {
+            position: absolute;
+            z-index: 999;
+            -webkit-animation: tipmove 1.5s infinite ease-in-out;
+        }
+        
+        @-webkit-keyframes tipmove {
+            0% {
+                bottom: 10px;
+                opacity: 0
+            }
+            50% {
+                bottom: 15px;
+                opacity: 1
+            }
+            100% {
+                bottom: 20px;
+                opacity: 0
+            }
+        }
+        
+        .swiper-pagination-bullet {
+            background: #e4bd5d;
+        }
+        
+        .resize {
+            display: block;
+            position: absolute;
+            z-index: 9999;
+            width: 20px;
+            height: 15px;
+            left: 50%;
+            bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app" style="max-width:750px; margin:0 auto;">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+            </div>
+            <img src="img/web-swipe-tip.png" id="array" class="resize">
+            <!--<div class="swiper-pagination"></div>-->
+        </div>
+    </div>
+    <script src="/zeph/tronkerWeb/js/plugins/jquery-2.2.0.min.js"></script>
+    <script src="js/jquery.swiper.min.js"></script>
+    <script>
+        $(function() {
+            var _html = '';
+            for (var i = 1; i < 14; i++) {
+                _html += ' <div class="swiper-slide"><img src="img/' + String(i) + '.jpg" alt=""></div>';
+            }
+            $('.swiper-wrapper').html(_html);
+
+            function fixPagesHeight() {
+                $('.swiper-slide,.swiper-container').css({
+                    height: $(window).height(),
+                })
+            }
+            $(window).on('resize', function() {
+                fixPagesHeight();
+            })
+            fixPagesHeight();
+
+
+            var mySwiper = new Swiper('.swiper-container', {
+                direction: 'vertical',
+                // pagination: '.swiper-pagination',
+                mousewheelControl: true,
+                watchSlidesProgress: true,
+                loop: true
+            });
+
+
+        })
+    </script>
+</body>
+
+</html>

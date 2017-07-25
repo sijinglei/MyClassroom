@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="province" name="province" onchange="doProvAndCityRelation();">
+  　　　　　　　　<option id="choosePro"value="-1">请选择您所在省份</option>
+  
+  　　　　　　</select>
+    <select id="citys" name="city" onchange="doCityAndCountyRelation();">
+ 　　　　　　　　<option id='chooseCity' value='-1'>请选择您所在城市</option>
+ 　　　　　　</select>
+    <select id="county" name="county">
+ 　　　　　　　　<option id='chooseCounty' value='-1'>请选择您所在区/县</option>
+　　　　　　</select>
+    <link rel="stylesheet" href="select2.min.css">
+    <script src="jquery.js"></script>
+    <script src="select2.min.js"></script>
+    <script src="city.js"></script>
+    <script src="select-area.js"></script>
+</body>
+
+</html>
