@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WebSocket Demo</title>
+</head>
+
+<body>
+    <div>
+        <h1>Echo Demo</h1>
+        <input type="text" id="sendText" value="">
+        <button id="sendBtn">发送</button>
+        <div id="recv">
+
+        </div>
+    </div>
+    <script>
+        var webSocket = new WebSocket('ws://echo.websocket.org');
+        webSocket.onopen = function() {
+            console.log('websocket open');
+            document.getElementById('recv').innerHTML = 'Connected';
+        }
+        webSocket.onclose = function() {
+            console.log('websocket close');
+        }
+        document.getElementById('sendBtn').onclick = function() {
+            var txt = document.getElementById('sendText').value;
+            webSocket.send(txt);
+        }
+
+        webSocket.onmessage = function(e) {
+            console.log(e.data);
+            document.getElementById('recv').innerHTML = e.data;
+        }
+    </script>
+</body>
+
+</html>
