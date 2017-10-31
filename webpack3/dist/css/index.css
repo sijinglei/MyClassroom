@@ -1,0 +1,49 @@
+/*! 版权所有 */
+body {
+  background-color: rgba(29, 231, 80, 0.37);
+  color: rgb(226, 44, 44);
+}
+
+#photo {
+  background-image: url(http://192.168.1.114:2000/images/4e2f96e3043f3e1a8a89539475bf2ba6.jpg);
+  width: 247px;
+  height: 200px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-box-shadow: 1px 1px 0 rgb(226, 44, 44, .25);
+  box-shadow: 1px 1px 0 rgb(226, 44, 44, .25);
+}
+
+.aa {
+  color: #fff;
+}
+
+.bgcolor {
+  width: 300px;
+  height: 200px;
+  background-color: #000;
+}
+
+.nav {
+  width: 100%;
+  height: 30px;
+  background: #eee;
+}
+
+.nav .nav-menu {
+  width: 1000px;
+  margin: 0 auto;
+  height: 30px;
+  line-height: 30px;
+  background: red;
+  color: #fff;
+  padding: 2px 5px;
+}
+
+.nav .hh {
+  color: #fff;
+}
+
+.aa {
+  width: 300px;
+}

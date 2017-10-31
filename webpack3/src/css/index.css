@@ -1,0 +1,16 @@
+body {
+    background-color: rgba(29, 231, 80, 0.37);
+    color: rgb(226, 44, 44);
+}
+
+#photo {
+    background-image: url('../images/1.jpg');
+    width: 247px;
+    height: 200px;
+    transform: rotate(45deg);
+    box-shadow: 1px 1px 0 rgb(226, 44, 44, .25);
+}
+
+.aa {
+    color: #fff;
+}

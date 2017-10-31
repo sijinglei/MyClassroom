@@ -1,0 +1,24 @@
+$nav-color:#eee;
+$font-color:#fff;
+.nav {
+    $width: 100%;
+    width: $width;
+    height: 30px;
+    background: $nav-color;
+    .nav-menu {
+        width: 1000px;
+        margin: 0 auto;
+        height: 30px;
+        line-height: 30px;
+        background: red;
+        color: $font-color;
+        padding: 2px 5px;
+    }
+    .hh {
+        color: $font-color;
+    }
+}
+
+.aa {
+    width: 300px;
+}
