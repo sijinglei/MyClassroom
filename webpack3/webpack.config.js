@@ -5,6 +5,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); //一款js压缩插�
 const HtmlPlugin = require('html-webpack-plugin'); //html插件
 const ExtractTextPlugin = require("extract-text-webpack-plugin"); //分离css的插件,使样式文件独立存在
 const PurifyCSSPlugin = require('purifycss-webpack'); //清楚没用css样式
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 //模块化
 const entry = require('./webpack_config/entry_config.js');
 
@@ -26,10 +27,12 @@ module.exports = {
         4：cheap-moudle-eval-source-map  行 
     */
     devtool: 'cheap-moudle-eval-source-map', //需要调试的时候用。调试工具
-    entry: entry.path,
-    // entry: {
-    //     entry: './src/entry.js'
-    // }, //入口
+    // entry: entry.path,
+    entry: {
+        entry: './src/entry.js',
+        jquery: 'jquery',
+        vue: 'vue'
+    }, //入口
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
@@ -136,6 +139,18 @@ module.exports = {
         ]
     }, //模块
     plugins: [
+        //抽离单个插件
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: 'jquery', //入口那里的jquery
+        //     filename: 'assets/js/jquery.min.js',
+        //     minChunks: 2 //最小抽离几个文件，一般2就够了
+        // }),
+        //如果多个，多入口抽离
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ['jquery', 'vue'], //入口那里的jquery
+            filename: 'assets/js/[name].js',
+            minChunks: 2 //最小抽离几个文件，一般2就够了
+        }),
         //第三方插件
         new webpack.ProvidePlugin({
             $: 'jquery',
@@ -155,7 +170,12 @@ module.exports = {
         new PurifyCSSPlugin({
             paths: glob.sync(path.join(__dirname, 'src/*.html'))
         }),
-        new webpack.BannerPlugin('版权所有')
+        new webpack.BannerPlugin('版权所有'),
+        //静态资源复制插件
+        new CopyWebpackPlugin([{
+            from: __dirname + '/src/public',
+            to: './public'
+        }])
     ], //插件
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'), //路径
